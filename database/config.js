@@ -8,7 +8,7 @@ const dbConnection = async() =>{
         const protocol = process.env.DB_PROTOCOL
         const dbCluster =  process.env.DBCLUSTER
         //const DBconnectionString = protocol+dbUser+dbPass+dbCluster+databaseName
-        const DBconnectionString = 'mongodb+srv://admin:admin@cluster0.jpyswku.mongodb.net/chatdb'
+        const DBconnectionString = protocol+dbUser+dbPass+dbCluster+databaseName
         await mongoose.connect(DBconnectionString,{
             useNewUrlParser: true,
             useUnifiedTopology: true
