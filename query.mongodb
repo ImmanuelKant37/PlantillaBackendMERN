@@ -1,0 +1,4 @@
+
+use('chatdb');
+//SELECT FROM GENERICO
+db.usuarios.find()
