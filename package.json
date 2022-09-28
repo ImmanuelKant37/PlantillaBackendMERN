@@ -5,7 +5,7 @@
   "main": "node index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "npm run build && node index.js"
+    "start": "npm run build"
   },
   "engines": {
     "node": "v16.14.2"
