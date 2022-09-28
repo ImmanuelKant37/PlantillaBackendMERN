@@ -15,7 +15,7 @@ class Server {
         this.port =process.env.PORT || 5000;
 
         //Conectar a DB
-      //  dbConnection();
+        dbConnection();
 
         // Http server
         this.server = http.createServer( this.app );
