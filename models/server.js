@@ -12,7 +12,7 @@ class Server {
     constructor() {
 
         this.app  = express();
-        this.port = 8080;
+        this.port = 3000;
 
         //Conectar a DB
       //  dbConnection();
