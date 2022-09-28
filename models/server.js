@@ -16,7 +16,7 @@ class Server {
 
         //Conectar a DB
         dbConnection();
-        //Test
+        //Test2
         // Http server
         this.server = http.createServer( this.app );
         
