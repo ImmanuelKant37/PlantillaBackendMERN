@@ -1,6 +1,6 @@
 const {Router} = require ('express');
 const { crearLista } = require('../controllers/auth');
-
+const { check } = require('express-validator');
 
 const router = Router();
 router.post('/createList',[check('clave', 'Clave es obligatorio').not().notEmpty(),
