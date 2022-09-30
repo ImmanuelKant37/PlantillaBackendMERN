@@ -2,6 +2,7 @@ const { response } = require("express")
 const Usuario      = require('../models/usuario')
 const bcrypt       = require ('bcryptjs');
 const { generarJWT } = require("../helpers/jwt");
+const listaGenerica = require("../models/listaGenerica");
 
 const crearUsuario = async(req, res = response) =>{
  try {
@@ -85,10 +86,32 @@ const renewToken = async(req, res) =>{
         token,
     })
 }
+const crearLista = async (req, res=response) => {
+    try {
+        const {clave,valor}= req.body;
+        const lista = new listaGenerica(req.body);
+        const token = await generarJWT(clave)
+    await usuario.save(); //Funcion heredada de moongose Schema
+    res.json({
+        lista,
+        token
+    })
+
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).json({
+            ok:false,
+            msg: 'error en el servidor'
+            })        
+    }
+}
+
 module.exports= {
     crearUsuario,
     login,
-    renewToken
+    renewToken,
+    crearLista
 }
 
 

@@ -22,8 +22,10 @@ router.post( '/',[
     check('password', 'El password es obligatorio').not().notEmpty(),
     validarcampos
 ], login)
-//login
+
 router.get( '/renew',validarJWT, renewToken)
+//Crear lista 
+
 
 
 module.exports = router;

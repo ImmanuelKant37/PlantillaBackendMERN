@@ -35,6 +35,7 @@ class Server {
         // API: ENDPOINTS
         this.app.use('/api/login', require('../router/auth'));
         this.app.use('/api/mensajes', require('../router/mensajes'));
+        this.app.use('/api/get', require('../router/lista'));
 
     }
 
