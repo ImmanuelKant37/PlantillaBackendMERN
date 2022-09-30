@@ -4,13 +4,10 @@ const { Schema, model } = require('mongoose');
 const ListaSchema = Schema({
 
 
-    lista: {
-        type: [{
-            clave : Number,
-            valor : String
-        }],
-        default: undefined
-    }
+    Lista: [{
+        clave: Number,
+        valor: String
+    }]
 },{
     timestamps: true
 });
