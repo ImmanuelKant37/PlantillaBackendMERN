@@ -5,8 +5,11 @@ const ListaSchema = Schema({
 
 
     Lista: [{
-        clave: Number,
-        valor: String
+        type: Schema.Types.Number,
+        ref: 'Clave'
+    },{
+        type: Schema.Types.String,
+        ref: 'Valor'
     }]
 },{
     timestamps: true
