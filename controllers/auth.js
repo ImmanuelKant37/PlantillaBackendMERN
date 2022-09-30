@@ -91,7 +91,7 @@ const crearLista = async (req, res=response) => {
         const {clave,valor}= req.body;
         const lista = new listaGenerica(req.body);
         const token = await generarJWT(clave)
-    await usuario.save(); //Funcion heredada de moongose Schema
+    await lista.save(); //Funcion heredada de moongose Schema
     res.json({
         lista,
         token
