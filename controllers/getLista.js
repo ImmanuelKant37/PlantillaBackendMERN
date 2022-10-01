@@ -31,7 +31,7 @@ const crearLista = async (req, res=response) => {
 const recuperarLista = async (req, res=response) => {
     try {
         const {NombreLista}= req.body;
-        const ListaGenerica = new listaGenerica(req.body);
+        const ListaGenerica = require('../models/listaGenerica')
        
     await ListaGenerica.find().select(NombreLista); //Funcion heredada de moongose Schema
   
