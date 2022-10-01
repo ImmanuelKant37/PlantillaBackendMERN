@@ -9,7 +9,7 @@ const ListaSchema = Schema({
         ref: 'Clave'}
             },
          {
-        Valor:{type: Schema.Types.String,
+        Valor:{type: String,
         ref: 'Valor'}
     }]
 },{
@@ -18,7 +18,7 @@ const ListaSchema = Schema({
 
 
 ListaSchema.method('toJSON', function() {
-    const { __v, ...object } = this.toObject();
+    const { __v, Lista, ...object } = this.toObject();
     return object;
 });
 
