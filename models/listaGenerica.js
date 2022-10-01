@@ -5,11 +5,11 @@ const ListaSchema = Schema({
 
 
     Lista: [{
-        type: Schema.Types.Number,
-        ref: 'Clave'
-    },{
+        Clave:{type: Schema.Types.Number,
+        ref: 'Clave'}
+    },{Valor:{
         type: Schema.Types.String,
-        ref: 'Valor'
+        ref: 'Valor'}
     }]
 },{
     timestamps: true
