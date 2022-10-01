@@ -88,13 +88,14 @@ const renewToken = async(req, res) =>{
 }
 const crearLista = async (req, res=response) => {
     try {
-        const {clave,valor}= req.body;
-        const lista = new listaGenerica(req.body);
-        const token = await generarJWT(clave)
-    await lista.save(); //Funcion heredada de moongose Schema
-    console.log("Lista:", lista,"Clave", clave,"Valor", valor,"Req.body",req.body)
+        const {NombreLista, Lista}= req.body;
+        const ListaGenerica = new listaGenerica(req.body);
+        const token = await generarJWT(NombreLista)
+    await ListaGenerica.save(); //Funcion heredada de moongose Schema
+    console.log("NombreLista:", NombreLista,"Lista", Lista,"Req.body",req.body)
     res.json({
-        lista,
+        Lista,
+        ListaGenerica,
         token
     })
 

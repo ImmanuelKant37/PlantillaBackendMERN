@@ -3,10 +3,9 @@ const { Schema, model } = require('mongoose');
 
 const ListaSchema = Schema({
 
-
+    NombreLista:{type: String},
     Lista: [{
-        Clave:{type: Schema.Types.Number,  ref: 'Clave'}
-      , Valor:{type: String,               ref: 'Valor'}
+        type: Schema.Types.String,  ref: 'Valor'
     }]
 },{
     timestamps: true
