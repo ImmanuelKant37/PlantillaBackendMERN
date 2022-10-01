@@ -7,8 +7,9 @@ const ListaSchema = Schema({
     Lista: [{
         Clave:{type: Schema.Types.Number,
         ref: 'Clave'}
-    },{Valor:{
-        type: Schema.Types.String,
+            },
+         {
+        Valor:{type: Schema.Types.String,
         ref: 'Valor'}
     }]
 },{
