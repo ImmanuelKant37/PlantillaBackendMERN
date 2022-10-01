@@ -34,9 +34,9 @@ const recuperarLista = async (req, res=response) => {
         const ListaGenerica = require('../models/listaGenerica')
        
    
-    const findByID  =await ListaGenerica.findById({ _id: '63378ec505007bb93ae18a50' })
+    const findBy  =await ListaGenerica.find({ NombreLista: '' })
     res.json({
-        findByID
+        findBy
     })
 
     }
