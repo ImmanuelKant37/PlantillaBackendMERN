@@ -33,10 +33,13 @@ const recuperarLista = async (req, res=response) => {
         const {NombreLista}= req.body;
         const ListaGenerica = require('../models/listaGenerica')
        
-    await ListaGenerica.find().select(NombreLista); //Funcion heredada de moongose Schema
-  
+    const find = await ListaGenerica.find(NombreLista); //Funcion heredada de moongose Schema
+    const findTwo= await ListaGenerica.find('NombreLista');
+    const findByID  =await ListaGenerica.findById({ _id: '' })
     res.json({
-        ListaGenerica
+        find,
+        findTwo,
+        findByID
     })
 
     }
