@@ -7,7 +7,7 @@ const crearForm = async (req, res=response) => {
         const {Codigo}= req.body;
         const Form = new FormGenerico(req.body);
       
-        const existeCodigo= await Form.findOne({Codigo}); //Si existe
+        const existeCodigo= await FormGenerico.findOne({Codigo}); //Si existe
         if (existeCodigo){
             return res.status(400).json({
                 ok:false,
@@ -15,7 +15,7 @@ const crearForm = async (req, res=response) => {
             })
         }
         else{
-        await FormGenerico.save(); //Funcion heredada de moongose Schema
+        await Form.save(); //Funcion heredada de moongose Schema
         res.json({
             Form,
         })}
