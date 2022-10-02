@@ -9,6 +9,7 @@ const FormSchema = Schema({
     CategoriaForm:{type: String},
     SubCategoria:{type:String},
     NivelDeAcceso:{type:Number},
+    Items:{type:Array},
     URL: {type:String}
 },{
     timestamps: true
