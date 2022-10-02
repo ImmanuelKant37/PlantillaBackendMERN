@@ -41,8 +41,7 @@ const recuperarForm = async (req, res=response) => {
     const findAll  =await FormGenerico.find({  type: Object  })
    
     res.json({
-        findAll,
-        findByRef
+        findAll
     })
 
     }
