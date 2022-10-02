@@ -54,6 +54,26 @@ const recuperarForm = async (req, res=response) => {
     }
 }
 
+const buscarForm = async (req, res=response) => {
+    try {
+        
+    const FormGenerico = require('../models/formGenerico') 
+    const {Codigo}= req.body;
+    const find  =await FormGenerico.findOne({ Codigo:Codigo  })
+   
+    res.json({
+        find
+    })
+
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).json({
+            ok:false,
+            msg: 'error en el servidor'
+            })        
+    }
+}
 
 const actualizarForm = async (req, res=response) => {
     try {
@@ -120,7 +140,8 @@ module.exports= {
     actualizarForm,
     crearForm,
     recuperarForm,
-    eliminarForm
+    eliminarForm,
+    buscarForm
 }
 
 

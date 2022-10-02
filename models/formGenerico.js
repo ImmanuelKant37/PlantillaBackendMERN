@@ -5,6 +5,7 @@ const FormSchema = Schema({
     Codigo:{type:Number, unique:true},
     NombreForm:{type: String},
     Titulo:{type:String},
+    Descripcion:{type:String},
     CategoriaForm:{type: String},
     SubCategoria:{type:String},
     NivelDeAcceso:{type:Number},
