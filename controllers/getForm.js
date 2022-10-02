@@ -58,9 +58,7 @@ const recuperarForm = async (req, res=response) => {
 const actualizarForm = async (req, res=response) => {
     try {
         const {Codigo}= req.body;
-        const Form = new FormGenerico(req.body);
-      
-        const existeCodigo= await FormGenerico.find({Codigo}); //Si existe
+        const existeCodigo= await FormGenerico.findOne({Codigo}); //Si existe
         if (existeCodigo){
            await FormGenerico.findOneAndUpdate({Codigo},req.body); //Funcion heredada de moongose Schema
            const form= await FormGenerico.find({Codigo});
@@ -91,7 +89,7 @@ const eliminarForm = async (req, res=response) => {
         const {Codigo}= req.body;
         const Form = new FormGenerico(req.body);
       
-        const existeCodigo= await FormGenerico.find({Codigo}); //Si existe
+        const existeCodigo= await FormGenerico.findOne({Codigo}); //Si existe
         if (existeCodigo){
             await FormGenerico.findOneAndDelete({Codigo},req.body); //Funcion heredada de moongose Schema
             res.json({
