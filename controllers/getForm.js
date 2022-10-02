@@ -85,11 +85,41 @@ const actualizarForm = async (req, res=response) => {
 }
 
 
+const eliminarForm = async (req, res=response) => {
+    try {
+        const {Codigo}= req.body;
+        const Form = new FormGenerico(req.body);
+      
+        const existeCodigo= await FormGenerico.find({Codigo}); //Si existe
+        if (existeCodigo){
+           const formDel= await FormGenerico.findOneAndDelete({Codigo},req.body); //Funcion heredada de moongose Schema
+            res.json({
+                formDel,
+            })
+        }
+        else{
+            return res.status(400).json({
+                ok:false,
+                msg: 'El form no existe'
+            })
+        }
+
+        }
+        catch (error) {
+            console.log(error)
+            res.status(500).json({
+                ok:false,
+                msg: 'error en el servidor'
+                })        
+        }
+}
+
 
 module.exports= {
     actualizarForm,
     crearForm,
-    recuperarForm
+    recuperarForm,
+    eliminarForm
 }
 
 
