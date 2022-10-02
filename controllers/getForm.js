@@ -96,7 +96,6 @@ const eliminarForm = async (req, res=response) => {
             await FormGenerico.findOneAndDelete({Codigo},req.body); //Funcion heredada de moongose Schema
             res.json({
                 Form,
-                formDel,
                 ok:true,
                 msg: 'Form eliminado'
             })
