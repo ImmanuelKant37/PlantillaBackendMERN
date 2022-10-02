@@ -62,7 +62,7 @@ const actualizarForm = async (req, res=response) => {
       
         const existeCodigo= await FormGenerico.findOne({Codigo}); //Si existe
         if (existeCodigo){
-            await Form.save(); //Funcion heredada de moongose Schema
+            await Form.update(); //Funcion heredada de moongose Schema
             res.json({
                 Form,
             })
