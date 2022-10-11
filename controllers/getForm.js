@@ -38,7 +38,7 @@ const recuperarForm = async (req, res=response) => {
         const FormGenerico = require('../models/formGenerico')
        
    
-    const findAll = await FormGenerico.find({  type: Object  }).limit
+    const findAll = await FormGenerico.find({  type: Object  })
    
     res.json({
         findAll
