@@ -27,9 +27,16 @@ class Server {
     middlewares() {
         // Desplegar el directorio público
         this.app.use( express.static( path.resolve( __dirname, '../public' ) ) );
-      //  this.app.options('*', cors())
+   
+       
         // CORS
-      //  this.app.use(cors())
+        app.use(cors({
+            origin: ['localhost:3000', 'https://gestorproyectos.netlify.app/']
+          }));
+        app.use(cors({
+            methods: ['GET', 'POST'],
+            allowedHeaders: ['Content-Type']
+          }));
         //Parseo del body 
         this.app.use(express.json());
         // API: ENDPOINTS
