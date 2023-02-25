@@ -27,7 +27,7 @@ class Server {
     middlewares() {
         // Desplegar el directorio público
         this.app.use( express.static( path.resolve( __dirname, '../public' ) ) );
-   
+        this.app.use(cors())
         // CORS
         this.app.use(cors({
             origin: ['localhost:3000', 'gestorproyectos.netlify.app','https://plantilla-backend-mern.vercel.app/api/post/getAllDocumentos']
