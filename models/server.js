@@ -27,9 +27,9 @@ class Server {
     middlewares() {
         // Desplegar el directorio público
         this.app.use( express.static( path.resolve( __dirname, '../public' ) ) );
-        this.app.options('*', cors())
+      //  this.app.options('*', cors())
         // CORS
-        this.app.use(cors())
+      //  this.app.use(cors())
         //Parseo del body 
         this.app.use(express.json());
         // API: ENDPOINTS
