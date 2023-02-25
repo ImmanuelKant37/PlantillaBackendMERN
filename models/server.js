@@ -27,7 +27,7 @@ class Server {
     middlewares() {
         // Desplegar el directorio público
         this.app.use( express.static( path.resolve( __dirname, '../public' ) ) );
-        var whitelist = ['https://gestorproyectos.netlify.app/', 'http://localhost:3000/']
+        var whitelist = ['https://gestorproyectos.netlify.app', 'http://localhost:3000/']
         var corsOptionsDelegate = function (req, callback) {
           var corsOptions;
           if (whitelist.indexOf(req.header('Origin')) !== -1) {
