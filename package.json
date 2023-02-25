@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "node index.js",
+  "proxy":"https://plantilla-backend-mern.vercel.app",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
