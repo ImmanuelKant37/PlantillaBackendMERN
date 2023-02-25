@@ -27,22 +27,31 @@ class Server {
     middlewares() {
         // Desplegar el directorio público
         this.app.use( express.static( path.resolve( __dirname, '../public' ) ) );
-        this.app.use(cors())
-        // CORS
-        this.app.use(cors({
-            origin: ['localhost:3000', 'https://gestorproyectos.netlify.app','https://plantilla-backend-mern.vercel.app/api/post/getAllDocumentos']
-          }));
-          this.app.use(cors({
-            methods: ['GET', 'POST'],
-            allowedHeaders: ['Content-Type']
-          }));
-          this.app.options('*', cors())
+        var whitelist = ['https://gestorproyectos.netlify.app/', 'http://localhost:3000/']
+        var corsOptionsDelegate = function (req, callback) {
+          var corsOptions;
+          if (whitelist.indexOf(req.header('Origin')) !== -1) {
+            corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
+          } else {
+            corsOptions = { origin: false } // disable CORS for this request
+          }
+          callback(null, corsOptions) // callback expects two parameters: error and options
+        }
+         
+        app.get('/api/post', cors(corsOptionsDelegate), function (req, res, next) {
+          res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
+        })
+         
+        app.listen(80, function () {
+          console.log('CORS-enabled web server listening on port 80')
+        })
         //Parseo del body 
         this.app.use(express.json());
         // API: ENDPOINTS
         this.app.use('/api/login', require('../router/auth'));
         this.app.use('/api/mensajes', require('../router/mensajes'));
-        this.app.use('/api/get', require('../router/form'));
+      //  this.app.use('/api/get', require('../router/form'));
+        this.app.use('/api/post', require('../router/form'));
 
     }
 
