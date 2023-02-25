@@ -30,7 +30,7 @@ class Server {
         this.app.use(cors())
         // CORS
         this.app.use(cors({
-            origin: ['localhost:3000', 'gestorproyectos.netlify.app','https://plantilla-backend-mern.vercel.app/api/post/getAllDocumentos']
+            origin: ['localhost:3000', 'https://gestorproyectos.netlify.app','https://plantilla-backend-mern.vercel.app/api/post/getAllDocumentos']
           }));
           this.app.use(cors({
             methods: ['GET', 'POST'],
