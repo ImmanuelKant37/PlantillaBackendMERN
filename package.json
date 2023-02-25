@@ -5,10 +5,11 @@
   "main": "node index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "publish": "npm run build && npx vercel --prod"
   },
   "engines": {
-    "node": "^16.14.2"
+    "node": "v16.14.2"
   },
   "author": "",
   "license": "ISC",
