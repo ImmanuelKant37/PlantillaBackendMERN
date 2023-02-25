@@ -36,6 +36,7 @@ class Server {
             methods: ['GET', 'POST'],
             allowedHeaders: ['Content-Type']
           }));
+          this.app.options('*', cors())
         //Parseo del body 
         this.app.use(express.json());
         // API: ENDPOINTS
