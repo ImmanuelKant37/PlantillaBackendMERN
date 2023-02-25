@@ -38,7 +38,7 @@ class Server {
           callback(null, corsOptions) // callback expects two parameters: error and options
         }
          
-        app.get('/api/post', cors(corsOptionsDelegate), function (req, res, next) {
+        app.get('/', cors(corsOptionsDelegate), function (req, res, next) {
           res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
         })
          
