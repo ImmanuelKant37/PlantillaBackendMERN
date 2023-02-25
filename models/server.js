@@ -29,10 +29,10 @@ class Server {
         this.app.use( express.static( path.resolve( __dirname, '../public' ) ) );
    
         // CORS
-        app.use(cors({
-            origin: ['localhost:3000', 'https://gestorproyectos.netlify.app']
+        this.app.use(cors({
+            origin: ['localhost:3000', 'gestorproyectos.netlify.app','https://plantilla-backend-mern.vercel.app/api/post/getAllDocumentos']
           }));
-        app.use(cors({
+          this.app.use(cors({
             methods: ['GET', 'POST'],
             allowedHeaders: ['Content-Type']
           }));
