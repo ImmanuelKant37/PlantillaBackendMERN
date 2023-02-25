@@ -43,7 +43,9 @@ class Server {
           console.log("getApiPost")
         })
          
-    
+        this.app.options('*', cors(corsOptionsDelegate))
+        this.app.options('/api/post', cors(corsOptionsDelegate)) // enable pre-flight request for DELETE request
+
         this.app.use((req, res, next) => {
             res.header('Access-Control-Allow-Origin', '*');
             next();
