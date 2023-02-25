@@ -27,10 +27,10 @@ class Server {
     middlewares() {
         // Desplegar el directorio público
         this.app.use( express.static( path.resolve( __dirname, '../public' ) ) );
-        var whitelist = ['https://gestorproyectos.netlify.app', 'http://localhost:3000/']
+        var whitelist = ['https://gestorproyectos.netlify.app', 'http://localhost:5001/']
         var corsOptionsDelegate = function (req, callback) {
           var corsOptions;
-          if (whitelist.indexOf(req.header('Referer')) !== -1) {
+          if (whitelist.indexOf(req.header('Origin')) !== -1) {
             corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
           } else {
             corsOptions = { origin: false } // disable CORS for this request
@@ -38,16 +38,16 @@ class Server {
           callback(null, corsOptions) // callback expects two parameters: error and options
         }
          
-        app.get('/', cors(corsOptionsDelegate), function (req, res, next) {
+        this.app.get('/api/post', cors(corsOptionsDelegate), function (req, res, next) {
           res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
+          console.log("getApiPost")
         })
          
-        app.listen(80, function () {
-          console.log('CORS-enabled web server listening on port 80')
-        })
-        app.use((req, res, next) => {
+    
+        this.app.use((req, res, next) => {
             res.header('Access-Control-Allow-Origin', '*');
             next();
+            console.log("Check CROSS")
           });
         //Parseo del body 
         this.app.use(express.json());

@@ -1,15 +1,14 @@
 {
-  "name": "01-socket-server-basic",
+  "name": "myApp",
   "version": "1.0.0",
   "description": "",
   "main": "node index.js",
-  "proxy":"https://plantilla-backend-mern.vercel.app",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
   "engines": {
-    "node": "v16.14.2"
+    "node": "^16.14.2"
   },
   "author": "",
   "license": "ISC",
